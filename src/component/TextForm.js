@@ -9,6 +9,12 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handleLowerClick=()=>{
+        console.log("Lower case was clicked"+text);
+       let newText=text.toLowerCase();
+        setText(newText)
+    }
+
     const handleOnChange=(event)=>{
         console.log("On Change");
         setText(event.target.value)
@@ -24,6 +30,7 @@ export default function TextForm(props) {
       <textarea className="form-control" id="mybox" rows="8"  value={text} onChange={handleOnChange}/>
     </div>
    <button className="btn btn-primary" onClick={handleUpClick}>Convert to Upper Case</button>
+   <button className="btn btn-primary" onClick={handleLowerClick}>Convert to Lower Case</button>
      </div>
 
      <div className="container  my-3">
@@ -31,6 +38,10 @@ export default function TextForm(props) {
 
     <h1>Your text summary</h1>
     <p>Text contains {text.split(" ").length} words and {text.length}  characters</p>
+    <p>{0.008 * text.split(" ").length} Minutes to read</p>
+
+    <h2>Preview</h2>
+    <p>{text}</p>
      </div>
      </>
 
