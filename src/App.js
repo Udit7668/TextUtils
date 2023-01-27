@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 import About from './component/About';
+import Alert from './component/Alert';
 import Navbar from './component/Navbar';
 import TextForm from './component/TextForm';
 
@@ -13,12 +14,24 @@ function App() {
     if(mode=='light'){
     setMode('dark');
     document.body.style.backgroundColor='blue';
+    showAlert("Dark Mode has been Enabled","success");
 
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
+      showAlert("Light Mode has been Enabled","success");
     }
+  }
+
+
+  const [alert,setAlert]=useState(null);
+
+  const showAlert=(message,type)=>{
+    setAlert({
+    msg:message,
+    type:type
+    })
   }
 
   return (
@@ -61,7 +74,7 @@ function App() {
 
    <Navbar title="Text Utils"  About="AboutText"  mode={mode} toggleMode={toggleMode}/>
 
-
+<Alert alert={alert}/>
 <div className="container my-3" >
 <TextForm  heading="Enter the text To Analyze"  mode={mode} />
 
