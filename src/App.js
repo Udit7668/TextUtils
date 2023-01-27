@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import About from './component/About';
 import Navbar from './component/Navbar';
@@ -6,6 +7,20 @@ import TextForm from './component/TextForm';
 
 // let name="udit Mishra";
 function App() {
+  const [mode,setMode]=useState('light');
+ 
+  const toggleMode=()=>{
+    if(mode=='light'){
+    setMode('dark');
+    document.body.style.backgroundColor='grey';
+
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor='white';
+    }
+  }
+
   return (
    /*  <>
     <h1>This is me </h1>
@@ -41,8 +56,10 @@ function App() {
    <h1> Name is {name}</h1>
    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque reiciendis maxime excepturi cum quod, molestias dicta aspernatur facilis deserunt sit alias, reprehenderit dolore mollitia, corporis explicabo magni. Magnam, soluta!</p>
    </> */
-   <>
-   <Navbar title="Text Utils"  About="AboutText"/>
+ 
+     <>
+
+   <Navbar title="Text Utils"  About="AboutText"  mode={mode} toggleMode={toggleMode}/>
 
 
 <div className="container my-3" >
