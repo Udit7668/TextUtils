@@ -32,6 +32,9 @@ function App() {
     msg:message,
     type:type
     })
+    setTimeout(()=>{
+      setAlert(null)
+    },3000);
   }
 
   return (
@@ -76,7 +79,7 @@ function App() {
 
 <Alert alert={alert}/>
 <div className="container my-3" >
-<TextForm  heading="Enter the text To Analyze"  mode={mode} />
+<TextForm  heading="Enter the text To Analyze"  mode={mode}   showAlert={showAlert} />
 
 <About></About>
 </div>
