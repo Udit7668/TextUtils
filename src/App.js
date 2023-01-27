@@ -1,10 +1,22 @@
 // import logo from './logo.svg';
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import './App.css';
 import About from './component/About';
 import Alert from './component/Alert';
 import Navbar from './component/Navbar';
 import TextForm from './component/TextForm';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+
+import { useNavigate } from 'react-router-dom';
+
+
 
 // let name="udit Mishra";
 function App() {
@@ -48,12 +60,23 @@ function App() {
   }
 
   return (
+    
    /*  <>
     <h1>This is me </h1>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p> <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
@@ -85,21 +108,29 @@ function App() {
  
      <>
 
+<Router>
+<React.StrictMode>
    <Navbar title="Text Utils"  About="AboutText"  mode={mode} toggleMode={toggleMode}/>
-
 <Alert alert={alert}/>
 <div className="container my-3" >
-<TextForm  heading="Enter the text To Analyze"  mode={mode}   showAlert={showAlert} />
-
-<About></About>
-</div>
+          <Switch>
+          <Route exact path="/about">
+            <About/>
+          </Route>
+          <Route path="/">
+          <TextForm  heading="Enter the text To Analyze"  mode={mode}   showAlert={showAlert} />
+          </Route> 
+          </Switch>
+        
+        </div>
+        
   
 
 
 
 
 
-
+        </React.StrictMode>
 
 
 {/* 
@@ -110,6 +141,8 @@ function App() {
 
 
 //<Navbar/> */}
+
+</Router>
 
 </>
   );
