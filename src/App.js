@@ -15,12 +15,22 @@ function App() {
     setMode('dark');
     document.body.style.backgroundColor='blue';
     showAlert("Dark Mode has been Enabled","success");
+    document.title="TextUtils-DarkMode";
+
+  //    setTimeout(()=>{
+  //  document.title="TextUtils id good app"
+  //    },2000)
+
+  //    setTimeout(()=>{
+  //     document.title="Install TextUtils it is good app"
+  //    },1500)
 
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert("Light Mode has been Enabled","success");
+      document.title="TextUtils-LightMode";
     }
   }
 
