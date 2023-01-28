@@ -21,6 +21,7 @@ export default function TextForm(props) {
         console.log("Clear text was clicked"+text);
        let newText='';
         setText(newText)
+        props.showAlert("Text is removed removed","success")
     }
 
 
