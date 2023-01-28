@@ -42,6 +42,7 @@ export default function TextForm(props) {
         text.select();
         navigator.clipboard.writeText(text.value);
         props.showAlert("Text has been Copied","success")
+        document.getSelection().removeAllRanges();
     }
 
     const [text,setText]=useState('');

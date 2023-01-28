@@ -28,7 +28,7 @@ export default function About(props) {
 
 
    let mystyle={
-    color:props.mode=='light'?'black':'dark blue',
+    color:props.mode=='light'?'black':'blue',
     backgroundColor:props.mode=='light'?'white':'cyan'
    }
 
