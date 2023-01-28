@@ -28,8 +28,9 @@ export default function Navbar(props) {
     </form>
   </div>
     
-    <button className="btn btn-primary mx-3" onClick={props.toggleMode}>
-   Enable  Dark Mode
+    <button className="btn btn-primary mx-3" onClick={props.toggleMode}> 
+
+    {props.mode=='light'?'Enable Dark Mode':'Enable Light Mode'}
     </button>
 
 </nav>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
-export default function About() {
-    const [mystyle,setMyStyle]=useState({
+export default function About(props) {
+   /*  const [mystyle,setMyStyle]=useState({
         color:'black',
         backgroundColor:'white'
     });
@@ -24,13 +24,21 @@ export default function About() {
         setBtnText("Enable Dark Mode")
     }
    }
+ */
+
+
+   let mystyle={
+    color:props.mode=='light'?'black':'dark blue',
+    backgroundColor:props.mode=='light'?'white':'cyan'
+   }
+
 
   return (
     <div className='container' style={mystyle}>
 
     <h1>About Us</h1>
       <div id="accordion">
-  <div className="card">
+  <div className="card" style={mystyle}>
     <div className="card-header" id="headingOne">
       <h5 className="mb-0">
         <button className="btn btn-link" data-toggle="collapse" style={mystyle} data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -45,7 +53,7 @@ export default function About() {
       </div>
     </div>
   </div>
-  <div className="card">
+  <div className="card" style={mystyle}>
     <div className="card-header" id="headingTwo">
       <h5 className="mb-0">
         <button className="btn btn-link collapsed" style={mystyle} data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -59,7 +67,7 @@ export default function About() {
       </div>
     </div>
   </div>
-  <div className="card">
+  <div className="card" style={mystyle}>
     <div className="card-header" id="headingThree">
       <h5 className="mb-0">
         <button className="btn btn-link collapsed" style={mystyle} data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -75,8 +83,8 @@ export default function About() {
   </div>
 </div>  
  <div className="container">
-  <button className="btn btn-primary" onClick={toggleButton}>{btntext}</button>
-
+ {/*  <button className="btn btn-primary" onClick={toggleButton}>{btntext}</button>
+ */}
  </div>
 
     </div>
