@@ -23,6 +23,8 @@ function App() {
   const [mode,setMode]=useState('light');
  
   const toggleMode=()=>{
+
+    removeToggle();
     if(mode=='light'){
     setMode('dark');
     document.body.style.backgroundColor='black';
@@ -59,6 +61,22 @@ function App() {
     },3000);
   }
 
+  let removeToggle=()=>{
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-info');
+    document.body.classList.remove('bg-secondary');
+    document.body.classList.remove('bg-primary');
+
+  }
+
+
+  let toggle=(cls)=>{
+    removeToggle();
+      console.log(cls);
+      document.body.classList.add('bg-'+cls);
+  }
   return (
     
    /*  <>
@@ -110,7 +128,7 @@ function App() {
 
 <Router>
 <React.StrictMode>
-   <Navbar title="Text Utils"  About="AboutText"  mode={mode} toggleMode={toggleMode}/>
+   <Navbar title="Text Utils"  About="AboutText"  mode={mode} toggleMode={toggleMode} toggle={toggle}/>
 <Alert alert={alert}/>
 <div className="container my-3" >
           <Switch>
@@ -118,7 +136,7 @@ function App() {
             <About   mode={mode}/>
           </Route>
           <Route path="/">
-          <TextForm  heading="Enter the text To Analyze"  mode={mode}   showAlert={showAlert} />
+          <TextForm  heading="Enter the text To Analyze"  mode={mode}   showAlert={showAlert}/>
           </Route> 
           </Switch>
         

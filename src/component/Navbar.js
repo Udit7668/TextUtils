@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 
 export default function Navbar(props) {
+
+
   return (
     <>
    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
@@ -28,6 +30,16 @@ export default function Navbar(props) {
     </form>
   </div>
     
+
+
+    <div className="d-flex">
+      <div className="bg-primary rounded mx-2" onClick={()=>{props.toggle('primary')}} style={{height:'30px',width:'30px'}}></div>
+      <div className="bg-danger rounded mx-2" onClick={()=>{props.toggle('danger')}} style={{height:'30px',width:'30px'}}></div>
+      <div className="bg-success rounded mx-2" onClick={()=>{props.toggle('success')}} style={{height:'30px',width:'30px'}}></div>
+      <div className="bg-warning rounded mx-2" onClick={()=>{props.toggle('warning')}} style={{height:'30px',width:'30px'}}></div>
+      <div className="bg-info rounded mx-2" onClick={()=>{props.toggle('info')}} style={{height:'30px',width:'30px'}}></div>
+      <div className="bg-secondary rounded mx-2" onClick={()=>{props.toggle('secondary')}} style={{height:'30px',width:'30px'}}></div>
+    </div>
     <button className="btn btn-primary mx-3" onClick={props.toggleMode}> 
 
     {props.mode=='light'?'Enable Dark Mode':'Enable Light Mode'}
